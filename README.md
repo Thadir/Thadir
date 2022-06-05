@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @Thadir a nerdy devops/software egineer
-- 👀 I’m interested in qoulity
+- 👀 I’m interested in quality
 - 🌱 I’m currently learning ...
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me trough www.linkedin.com/in/thadir
