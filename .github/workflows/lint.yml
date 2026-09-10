@@ -1,0 +1,40 @@
+name: lint
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          set -euxo pipefail
+          ACTIONLINT=1.7.7
+          curl -fsSL "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT}/actionlint_${ACTIONLINT}_linux_amd64.tar.gz" \
+            | sudo tar -xz -C /usr/local/bin actionlint
+          GITLEAKS=8.28.0
+          curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS}/gitleaks_${GITLEAKS}_linux_x64.tar.gz" \
+            | sudo tar -xz -C /usr/local/bin gitleaks
+
+      - name: actionlint (workflow lint)
+        run: actionlint -color
+
+      - name: gitleaks (secret scan)
+        run: gitleaks dir . --no-banner --redact --verbose
+
+      - name: markdownlint
+        run: npx --yes markdownlint-cli2@0.14.0 "**/*.md" "#node_modules"
+
+      - name: cspell (spell check)
+        run: npx --yes cspell@8.15.4 lint --no-progress --show-suggestions --gitignore "**/*.md"

@@ -1,0 +1,15 @@
+{
+  "version": "0.2",
+  "language": "en,en-GB",
+  "caseSensitive": false,
+  "ignorePaths": ["node_modules/**", ".git/**"],
+  "words": [
+    "Brabant",
+    "Breda",
+    "Cremer",
+    "DevSecOps",
+    "Martijn",
+    "Thadir",
+    "skillicons"
+  ]
+}
