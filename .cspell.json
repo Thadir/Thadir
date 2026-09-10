@@ -1,0 +1,25 @@
+{
+  "version": "0.2",
+  "language": "en,en-GB",
+  "caseSensitive": false,
+  "ignorePaths": ["node_modules/**", ".git/**"],
+  "words": [
+    "Agentic",
+    "Arval",
+    "Backstage",
+    "Brabant",
+    "Breda",
+    "Capgemini",
+    "Cremer",
+    "DevSecOps",
+    "Martijn",
+    "Nomad",
+    "Paribas",
+    "Quarkus",
+    "Sogeti",
+    "SogetiLabs",
+    "TenneT",
+    "Thadir",
+    "skillicons"
+  ]
+}
